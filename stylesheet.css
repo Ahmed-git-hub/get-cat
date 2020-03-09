@@ -1,0 +1,14 @@
+.displayHorizontal > div {
+    display: inline-block;
+    width: 200px;
+    border: 1px solid red;
+   
+}
+
+.displayHorizontal > div img {
+    width:100%;
+}
+
+.alignCenter {
+    text-align: center;
+}

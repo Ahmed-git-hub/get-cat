@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Sandbox</title>
+
+    <script src="/Javascript.js"></script>
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+</head>
+
+<body onload="excute()" class="alignCenter" >
+
+    <!-- Button to call text from local textfile -->
+    <button id="getText">Get Text</button> <br><br>
+
+    <!-- Button to call API for random cat pictures -->
+    <button id="getCat">Get Random Cat</button><br><br>
+
+    <!-- Form to call API for specific cat breed and number of pictures -->
+    <form id="form">
+        <label for="enterBreed">Enter Breed</label>
+        <input type="text" id="enterBreed">
+        <label for="noCats">How many pictures would you like</label>
+        <input type="number" id="limitNo"></input>
+        <button id="getBreed" type="submit" onclick="assignBreedID_assignNo()">Get Cat Breed</button>
+    </form>
+    
+    <br>
+
+    <h1 id="catTitle"></h1>
+    <div id=title></div>
+    <div id=photos class="displayHorizontal"></div>
+    
+    
+
+    <br>
+    <a href="/practice.html">go to practice fetch api page</a>
+
+
+</body>
+
+</html>
