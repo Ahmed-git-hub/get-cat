@@ -1,7 +1,7 @@
 function excute() {
   document.getElementById('getText').addEventListener('click', getText);
   document.getElementById('getCat').addEventListener('click', getCat);
-  document.getElementById('getBreed').addEventListener('click', assignBreed_No)
+  document.getElementById('getBreed').addEventListener('click', assignBreedId)
 }
 
 
@@ -28,7 +28,7 @@ function getCat() {
        <img src="${catPicture.url}" alt="Cat picture">
       </div>
       `
-        document.getElementById('output').innerHTML = output
+        document.getElementById('pictures').innerHTML = output
       });
 
     })
@@ -36,14 +36,12 @@ function getCat() {
 }
 
 
-// Functions to call Images for specific breeds and number of Images
+// Functions to call pictures for specific breeds and number of pictures
 
 
-// function to assign form entry
-function assignBreed_No() {
-  const breed = document.getElementById('enterBreed').value;
-
-  // const limitNo = document.getElementById("limitNo").value;
+// function to assign breed form entry
+function assignBreedId() {
+  let breed = document.getElementById('enterBreed').value;
 
   document.getElementById('form').addEventListener('click', function(event) {
     event.preventDefault()
@@ -52,52 +50,43 @@ function assignBreed_No() {
   getBreedId(breed)
 }
 
-// Function to get breed Id
+// Function to get breed Id and assigning limit number
 function getBreedId(breed) {
+
+  let limitNo = document.getElementById("enterlimitNo").value;
+
+
   fetch(`https://api.thecatapi.com/v1/breeds/search?q=${breed}`)
     .then(res => res.json())
     .then(data => {
       data.forEach(function (catBreedId) {
-        const breedId = catBreedId.id;
-        getBreedPic(breedId, breed)
+        var breedId = catBreedId.id;
+
+        getBreedPic(breed, breedId, limitNo)
+
       });
     });
+
+    
+    
 }
 
-// Function to get breed Pic
+// Function to get breed Picture(s)
 
-// function getBreedPic(breedId, limitNo) {
-//   fetch(`https://api.thecatapi.com/v1/images/search?breed_id=${breedId}&limit=${limitNo}&size=small`)
-//     .then(res => res.json())
-//     .then(data => {
-//       document.getElementById('catTitle').innerHTML = data.name
-//       data.forEach(function (catBreedPic) {
-//         output += `
-//       <div>
-//        <img src="${catBreedPic.url}" alt="Cat picture">
-//       </div>
-//       `
-//         document.getElementById('output').innerHTML = output
-//       });
-
-//     })
-
-// }
-
-// Previous function which return the H1 and picture in the promise
-function getBreedPic(breedId, breed) {
-  fetch(`https://api.thecatapi.com/v1/images/search?breed_id=${breedId}&limit=2`)
+function getBreedPic(breed, breedId, limitNo) {
+  fetch(`https://api.thecatapi.com/v1/images/search?breed_id=${breedId}&limit=${limitNo}`)
     .then(res => res.json())
     .then(data => {
       let title = `<h1>Cat ${breed} Pictures</h1>`;
-      let photos = '';
+      debugger
+      let pictures = '';
       data.forEach(function (catBreedPic) {
-        photos += `
+        pictures += `
         <img src="${catBreedPic.url}" alt="Cat picture">
        `
       });
       document.getElementById('title').innerHTML = title
-      document.getElementById('photos').innerHTML = photos
+      document.getElementById('pictures').innerHTML = pictures
       
     })
 
