@@ -1,19 +1,19 @@
 function excute() {
-  document.getElementById('getText').addEventListener('click', getText);
+  // document.getElementById('getText').addEventListener('click', getText);
   document.getElementById('getCat').addEventListener('click', getCat);
   document.getElementById('getBreed').addEventListener('click', assignBreedId)
 }
 
 
-// Function to call text file
+// Function to call text file (removed)
 
-function getText() {
-  fetch('sample.txt')
-    .then(res => res.text())
-    .then(data => {
-      document.getElementById('output').innerHTML = data
-    })
-}
+// function getText() {
+//   fetch('sample.txt')
+//     .then(res => res.text())
+//     .then(data => {
+//       document.getElementById('output').innerHTML = data
+//     })
+// }
 
 
 // Function to call random cat images API
@@ -66,9 +66,6 @@ function getBreedId(breed) {
 
       });
     });
-
-    
-    
 }
 
 // Function to get breed Picture(s)
@@ -78,7 +75,6 @@ function getBreedPic(breed, breedId, limitNo) {
     .then(res => res.json())
     .then(data => {
       let title = `<h1>Cat ${breed} Pictures</h1>`;
-      debugger
       let pictures = '';
       data.forEach(function (catBreedPic) {
         pictures += `

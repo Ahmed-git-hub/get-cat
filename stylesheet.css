@@ -1,14 +1,37 @@
-.displayHorizontal > div {
-    display: inline-block;
-    width: 200px;
-    border: 1px solid red;
-   
-}
 
-.displayHorizontal > div img {
-    width:100%;
-}
-
-.alignCenter {
+.body {
     text-align: center;
+    margin: 0;
+}
+
+.header {
+    background: #1abc9c;
+    color: white;
+    margin-bottom: 20px;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+.header h1 {
+    font-size: 50px;
+    margin: 0px;
+}
+
+.label {
+
+}
+
+.gallary > img {
+    display: inline-block;
+    width: 300px;
+    border: 3px solid #1abc9c;
+}
+
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #1abc9c;
+    color: white;
+    text-align: center;
+    font-weight: bold ;
 }
